@@ -42,6 +42,10 @@ public class Form {
         addValidator(editText, validator);
     }
 
+    public void check(EditText editText, Validator validator, String errMsg) {
+        addValidator(editText, validator);
+    }
+
     public void checkValue(EditText editText, Range range, String errMsg) {
         ValueValidator validator = new ValueValidator(range, errMsg);
         addValidator(editText, validator);
