@@ -16,7 +16,7 @@ allprojects {
 
 Step 2. Add the dependency
 ```gradle
-compile 'com.github.mahmed8003:DroidValidatorLight:1.0.0'
+compile 'com.github.mahmed8003:DroidValidatorLight:1.1.0'
 ```
 
 
