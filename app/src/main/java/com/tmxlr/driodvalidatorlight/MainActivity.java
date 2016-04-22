@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         form.check(editText, RegexTemplate.EMAIL_PATTERN, "Must be an Email");
         form.checkLength(editText, Range.equalOrLess(12), "Text length must be less or equal to 12");
 
-        form.checkValue(editText2, Range.equalOrMore(23), "Entered value must be greater equal than 23");
+        //form.checkValue(editText2, Range.equalOrMore(23), "Entered value must be greater equal than 23");
+        form.checkValue(editText2, Range.equalsOrMoreAndEqualsOrLess(-12, 12), "Entered value must between -12 and 12");
 
         if(form.validate()) {
             Toast.makeText(this, "Success", Toast.LENGTH_LONG).show();

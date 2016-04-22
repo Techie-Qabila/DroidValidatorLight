@@ -18,7 +18,8 @@ public class ValueValidator extends Validator {
     }
 
     public static boolean isNumberFormat(String text) {
-        return Pattern.compile("^([1-9]|(0(\\.|$)))").matcher(text).find();
+        return Pattern.compile("^-?\\d+(.\\d{1,6})?$").matcher(text).find();
+        //return Pattern.compile("^([1-9]|(0(\\.|$)))").matcher(text).find();
     }
 
     @Override
