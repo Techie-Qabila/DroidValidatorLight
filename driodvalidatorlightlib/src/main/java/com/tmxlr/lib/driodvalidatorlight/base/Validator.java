@@ -13,4 +13,5 @@ public abstract class Validator {
 	public String getMessage() {
 		return errorMessage;
 	}
+
 }
