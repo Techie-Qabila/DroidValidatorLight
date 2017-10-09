@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 public class Form {
 
     public static final String TAG = Form.class.getSimpleName();
-    private static final int SHOW_ERRORS_TAG = Form.class.hashCode();
 
     final Context context;
     final Map<EditText, List<Validator>> fieldValidators;
@@ -67,7 +66,7 @@ public class Form {
     }
 
     public void setShowError(EditText editText) {
-        editText.setTag(SHOW_ERRORS_TAG, new Object());
+        editText.setTag(R.id.SHOW_ERRORS_TAG, new Object());
     }
 
     public boolean validate() {
@@ -97,7 +96,7 @@ public class Form {
             try {
                 if (!validator.isValid(editText.getText().toString())) {
                     if (!perFieldErrorMessageDisplay ||
-                            ((perFieldErrorMessageDisplay && editText.getTag(SHOW_ERRORS_TAG) != null))) {
+                            ((perFieldErrorMessageDisplay && editText.getTag(R.id.SHOW_ERRORS_TAG) != null))) {
                         editText.setError(validator.getMessage());
                     }
                     return false;
