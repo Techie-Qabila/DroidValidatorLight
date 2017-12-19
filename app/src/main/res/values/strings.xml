@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">DriodValidatorLight</string>
+    <string name="app_name">DroidValidatorLight</string>
+    <string name="button_next">Next</string>
 </resources>

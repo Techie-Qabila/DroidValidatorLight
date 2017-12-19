@@ -25,12 +25,12 @@ public class Form {
 
     final Context context;
     final Map<EditText, List<Validator>> fieldValidators;
+    private boolean perFieldErrorMessageDisplay = false;
 
     public Form(Context context) {
         this.context = context;
         this.fieldValidators = new HashMap<>();
     }
-
 
     public void check(EditText editText, String regex, String errMsg) {
         RegExpValidator validator = new RegExpValidator(Pattern.compile(regex), errMsg);
@@ -61,6 +61,14 @@ public class Form {
         addValidator(editText, validator);
     }
 
+    public void enablePerFieldErrorMessageDisplay() {
+        perFieldErrorMessageDisplay = true;
+    }
+
+    public void setShowError(EditText editText) {
+        editText.setTag(R.id.SHOW_ERRORS_TAG, new Object());
+    }
+
     public boolean validate() {
         boolean formValid = true;
         for (Map.Entry<EditText, List<Validator>> entry : fieldValidators.entrySet()) {
@@ -87,7 +95,10 @@ public class Form {
         for (Validator validator : validators) {
             try {
                 if (!validator.isValid(editText.getText().toString())) {
-                    editText.setError(validator.getMessage());
+                    if (!perFieldErrorMessageDisplay ||
+                            ((perFieldErrorMessageDisplay && editText.getTag(R.id.SHOW_ERRORS_TAG) != null))) {
+                        editText.setError(validator.getMessage());
+                    }
                     return false;
                 }
             } catch (ValidatorException e) {
