@@ -1,5 +1,6 @@
 # DroidValidatorLight
 [![](https://jitpack.io/v/mahmed8003/DroidValidatorLight.svg)](https://jitpack.io/#mahmed8003/DroidValidatorLight)
+
 This library is heavily inspired by [AwesomeValidation](https://github.com/thyrlian/AwesomeValidation) but with no external dependencies. It makes it very light weight
 
 ### Setup
